@@ -5,9 +5,16 @@ project(glogen--)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_COMPILER clang)
+set(CMAKE_C_COMPILER clang)
+
+# Glogen options and parameters
+option(GG_BUILD_EXAMPLES "Enable Glogen examples compilation" OFF)
+option(GG_BUILD_TESTS "Enable Glogen tests compilation (requires GoogleTests)" OFF)
+
+# ccmake -> cmake-curses-gui
 
 # Set some install directories variables
-get_filename_component(installdir ${CMAKE_INSTALL_PREFIX}/mml ABSOLUTE)
+get_filename_component(installdir ${CMAKE_INSTALL_PREFIX}/glogen ABSOLUTE)
 get_filename_component(installlibdir ${installdir}/lib ABSOLUTE)
 get_filename_component(installincludedir ${installdir}/include ABSOLUTE)
 get_filename_component(installdocdir ${installdir}/doc ABSOLUTE)
