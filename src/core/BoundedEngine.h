@@ -1,5 +1,5 @@
-#ifndef __GLOGEN_CONTEXT
-#define __GLOGEN_CONTEXT
+#ifndef __BOUNDED_ENGINE
+#define __BOUNDED_ENGINE
 
 #include <functional> // std::function
 #include <limits> // std::numeric_limits
@@ -8,8 +8,10 @@
 namespace glogen {
     
 template<class float_t, class reward_t>
-class GlogenContext {
+// BoundedGlogen
+class BoundedEngine : public GlogenEngine<float_t, reward_t> {
 protected:
+
     // Variables domain ranges
     std::vector<float_t> _var_ubs;
     std::vector<float_t> _var_lbs;
@@ -17,11 +19,11 @@ protected:
     //
 
 public:
-    GlogenContext(size_t nvar):
+    BoundedEngine(size_t nvar):
         _var_lbs(nbvar, std::numeric_limits<float_t>::lowest()),
         _var_ubs(nbvar, std::numeric_limits<float_t>::max()) 
         {
-            
+
         }
 
 };
