@@ -5,6 +5,8 @@
 #include <limits> // std::numeric_limits
 #include <vector>
 
+#include "GlogenEngine.h"
+
 namespace glogen {
     
 template<class float_t, class reward_t>
@@ -20,8 +22,8 @@ protected:
 
 public:
     BoundedEngine(size_t nvar):
-        _var_lbs(nbvar, std::numeric_limits<float_t>::lowest()),
-        _var_ubs(nbvar, std::numeric_limits<float_t>::max()) 
+        _var_lbs(nvar, std::numeric_limits<float_t>::lowest()),
+        _var_ubs(nvar, std::numeric_limits<float_t>::max()) 
         {
 
         }
